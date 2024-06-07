@@ -1,18 +1,55 @@
- 
-static void Main(string[] args)
+using System;
+
+namespace MatematikIslemi
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            double sayi1, sayi2, toplam,fark,carpim,bolum;
-            Console.Write("1. Sayı : ");
-            sayi1 = Convert.ToDouble(Console.ReadLine());
-            Console.Write("2. Sayı : ");
-            sayi2 = Convert.ToDouble(Console.ReadLine());
-            toplam = sayi1 + sayi2;
-            fark = sayi1 - sayi2;
-            carpim = sayi1 * sayi2;
-            bolum = sayi1 / sayi2;
-            Console.WriteLine("{0} ve {1} Sayısının Toplamı : {2}", sayi1, sayi2, toplam);
-            Console.WriteLine("{0} ve {1} Sayısının Farkı : {2}", sayi1, sayi2, fark);
-            Console.WriteLine("{0} ve {1} Sayısının Çarpımı : {2}", sayi1, sayi2, carpim);
-            Console.WriteLine("{0} ve {1} Sayısının Bölümü : {2}", sayi1, sayi2, bolum);
-            Console.ReadKey();
+            Console.WriteLine("Lütfen ilk sayıyı girin:");
+            double sayi1 = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Lütfen ikinci sayıyı girin:");
+            double sayi2 = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçin:");
+            Console.WriteLine("1. Toplama");
+            Console.WriteLine("2. Çıkarma");
+            Console.WriteLine("3. Çarpma");
+            Console.WriteLine("4. Bölme");
+
+            int secim = Convert.ToInt32(Console.ReadLine());
+            double sonuc = 0;
+
+            switch (secim)
+            {
+                case 1:
+                    sonuc = sayi1 + sayi2;
+                    Console.WriteLine("Sonuç: " + sonuc);
+                    break;
+                case 2:
+                    sonuc = sayi1 - sayi2;
+                    Console.WriteLine("Sonuç: " + sonuc);
+                    break;
+                case 3:
+                    sonuc = sayi1 * sayi2;
+                    Console.WriteLine("Sonuç: " + sonuc);
+                    break;
+                case 4:
+                    if (sayi2 != 0)
+                    {
+                        sonuc = sayi1 / sayi2;
+                        Console.WriteLine("Sonuç: " + sonuc);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Bir sayıyı sıfıra bölemezsiniz.");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Geçersiz seçim.");
+                    break;
+            }
         }
+    }
+}
